@@ -8,6 +8,7 @@ import {Tab2Screen} from '../screens/Tab2Screen';
 import {Tab3Screen} from '../screens/Tab3Screen';
 
 import {colors} from '../theme/appTheme';
+import {TopTabNavigator} from './TopTabNavigator';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -51,7 +52,7 @@ const TabsAndroid = () => {
       <BottomTabAndroid.Screen
         name="Tab2Screen"
         options={{title: 'Tab2'}}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabAndroid.Screen
         name="Tab3Screen"
@@ -103,7 +104,7 @@ export const TabsIOS = () => {
       <BottomTabIOS.Screen
         name="Tab2Screen"
         options={{title: 'Tab2'}}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabIOS.Screen
         name="Tab3Screen"
