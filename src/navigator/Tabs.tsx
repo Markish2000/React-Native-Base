@@ -9,6 +9,8 @@ import {Tab3Screen} from '../screens/Tab3Screen';
 
 import {colors} from '../theme/appTheme';
 import {TopTabNavigator} from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {StackNavigator} from './StackNavigator';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -22,27 +24,27 @@ const TabsAndroid = () => {
       sceneAnimationEnabled={true}
       barStyle={{backgroundColor: colors.primary}}
       screenOptions={({route}) => ({
+        tabBarActiveTintColor: colors.primary,
+        tabBarStyle: {borderTopColor: colors.primary},
+        tabBarLabelStyle: {fontSize: 15},
         tabBarIcon: ({color, focused}) => {
           let iconName: string = '';
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'bandage-outline';
               break;
 
             case 'Tab2Screen':
-              iconName = 'T2';
+              iconName = 'basketball';
               break;
 
-            case 'Tab3Screen':
-              iconName = 'St';
+            case 'StackNavigator':
+              iconName = 'bookmarks-outline';
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={25} color="#900" />;
         },
-        tabBarActiveTintColor: colors.primary,
-        tabBarStyle: {borderTopColor: colors.primary},
-        tabBarLabelStyle: {fontSize: 15},
       })}>
       <BottomTabAndroid.Screen
         name="Tab1Screen"
@@ -55,9 +57,9 @@ const TabsAndroid = () => {
         component={TopTabNavigator}
       />
       <BottomTabAndroid.Screen
-        name="Tab3Screen"
+        name="StackNavigator"
         options={{title: 'Stack'}}
-        component={Tab3Screen}
+        component={StackNavigator}
       />
     </BottomTabAndroid.Navigator>
   );
@@ -74,27 +76,27 @@ export const TabsIOS = () => {
         elevation: 0,
       }}
       screenOptions={({route}) => ({
+        tabBarActiveTintColor: colors.primary,
+        tabBarStyle: {borderTopColor: colors.primary},
+        tabBarLabelStyle: {fontSize: 15},
         tabBarIcon: ({color, focused, size}) => {
           let iconName: string = '';
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'bandage-outline';
               break;
 
             case 'Tab2Screen':
-              iconName = 'T2';
+              iconName = 'basketball';
               break;
 
-            case 'Tab3Screen':
-              iconName = 'St';
+            case 'StackNavigator':
+              iconName = 'bookmarks-outline';
               break;
           }
 
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={25} color="#900" />;
         },
-        tabBarActiveTintColor: colors.primary,
-        tabBarStyle: {borderTopColor: colors.primary},
-        tabBarLabelStyle: {fontSize: 15},
       })}>
       <BottomTabIOS.Screen
         name="Tab1Screen"
@@ -107,9 +109,9 @@ export const TabsIOS = () => {
         component={TopTabNavigator}
       />
       <BottomTabIOS.Screen
-        name="Tab3Screen"
+        name="StackNavigator"
         options={{title: 'Stack'}}
-        component={Tab3Screen}
+        component={StackNavigator}
       />
     </BottomTabIOS.Navigator>
   );
