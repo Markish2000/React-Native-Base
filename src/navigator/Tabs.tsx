@@ -33,7 +33,7 @@ const TabsAndroid = () => {
             case 'Tab1Screen':
               iconName = 'bandage-outline';
               break;
-
+            //
             case 'Tab2Screen':
               iconName = 'basketball';
               break;
