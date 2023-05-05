@@ -4,12 +4,15 @@ import {useContext} from 'react';
 import {AuthContext} from '../context/AuthContext';
 
 export const ContactsScreen = () => {
-  const {signIn, authState} = useContext(AuthContext);
+  const {
+    signIn,
+    authState: {isLoggedIn},
+  } = useContext(AuthContext);
 
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>ContactsScreen</Text>
-      {!authState.isLoggedIn && <Button title="SignIn" onPress={signIn} />}
+      {!isLoggedIn && <Button title="SignIn" onPress={signIn} />}
     </View>
   );
 };
